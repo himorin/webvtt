@@ -2,7 +2,7 @@
 
 Contributions to this repository are intended to become part of Recommendation-track documents 
 governed by the [W3C Patent Policy](https://www.w3.org/policies/patent-policy/20200915/) and
-[Document License](https://www.w3.org/copyright/document-license/). To contribute, you must 
+[Software and Document license](https://www.w3.org/copyright/software-license). To contribute, you must 
 either participate in the relevant W3C Working Group or make a non-member patent licensing
  commitment.
 
