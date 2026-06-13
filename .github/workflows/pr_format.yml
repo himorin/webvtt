@@ -23,9 +23,9 @@ jobs:
             echo "Action run ID ${{ github.run_id }} with format.py" > .pr_comment_text
             echo "Target commit SHA ${{ github.event.pull_request.head.sha }}" >> .pr_comment_text
             echo "" >> .pr_comment_text
-            echo "```diff" >> .pr_comment_text
+            echo '```diff' >> .pr_comment_text
             cat .pr_comment_diff >> .pr_comment_text
-            echo "```" >> .pr_comment_text
+            echo '```' >> .pr_comment_text
             gh pr comment ${{ github.event.number }} --body-file .pr_comment_text
           fi
 
