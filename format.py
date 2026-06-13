@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import re
 import sys
@@ -32,8 +32,8 @@ def validate(path, source, tokens):
 
     def fail(reason, offset):
         lineno = source.count('\n', 0, offset) + 1
-        print '%s:%s: error: %s' % (path, lineno, reason)
-        print source.splitlines()[lineno - 1]
+        print('%s:%s: error: %s'.format(path, lineno, reason))
+        print(source.splitlines()[lineno - 1])
         sys.exit(1)
 
     for token, start, end, name in tokens:
@@ -52,7 +52,7 @@ def validate(path, source, tokens):
 
 class LineWriter:
     def __init__(self, path):
-        self._file = open(path, 'w')
+        self._file = open(path + '-format', 'w')
         self._data = ''
         self._startdepth = 0
 
