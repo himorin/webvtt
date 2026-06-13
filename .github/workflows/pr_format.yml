@@ -1,7 +1,7 @@
 name: Check source for formatting
 
 on:
-  pull_request:
+  pull_request: {}
 
 permissions:
   pull-requests: write
