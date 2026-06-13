@@ -14,6 +14,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
       - name: Run format.py
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           chmod +x "${GITHUB_WORKSPACE}/format.py"
           ${GITHUB_WORKSPACE}/format.py index.bs
