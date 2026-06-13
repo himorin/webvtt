@@ -10,7 +10,7 @@ jobs:
   check_format:
     name: Check format and add comment to PR
     runs-on: ubuntu-latest
-    steops:
+    steps:
       - name: Checkout code
         uses: actions/checkout@v6
       - name: Run format.py
