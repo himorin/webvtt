@@ -52,7 +52,7 @@ def validate(path, source, tokens):
 
 class LineWriter:
     def __init__(self, path):
-        self._file = open(path, 'w')
+        self._file = open(path + '-format', 'w')
         self._data = ''
         self._startdepth = 0
 

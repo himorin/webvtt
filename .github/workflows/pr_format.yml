@@ -1,0 +1,30 @@
+name: Check source for formatting
+
+on:
+  pull_request:
+
+permissions:
+  pull-requests: write
+
+jobs:
+  check_format:
+    name: Check format and add comment to PR
+    runs-on: ubuntu-latest
+    steops:
+      - name: Checkout code
+        uses: actions/checkout@v6
+      - name: Run format.py
+        run: |
+          chmod +x "${GITHUB_WORKSPACE}/format.py"
+          ${GITHUB_WORKSPACE}/format.py index.bs
+          export BS_DIFF=$(diff index.bs index.bs-format)
+          if [ $BS_DIFF -ne "" ]; then
+            echo "Action run ID ${{ github.run_id }} with format.py" > .pr_comment_text
+            echo "Target commit SHA ${{GITHUB_SHA}}" >> .pr_comment_text
+            echo "" >> .pr_comment_text
+            echo "```diff" >> .pr_comment_text
+            echo $BS_DIFF >> .pr_comment_text
+            echo "```" >> .pr_comment_text
+            gh pr comment ${{ github.event.number }} --body-file .pr_comment_text
+          fi
+
